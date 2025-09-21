@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SearchService {
 
-  private API_KEY = 'caa8300bc818e7643ea53ed6f19509f7'; // ممكن تستخدم environment بدلها
+  private API_KEY = 'caa8300bc818e7643ea53ed6f19509f7'; 
   private BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
   constructor(private http: HttpClient) { }

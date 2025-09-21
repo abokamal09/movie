@@ -29,7 +29,7 @@ export class MovieCardComponent {
     return Math.round(this.movie?.vote_average * 10);
   }
   onImageError(event: any) {
-  event.target.src = 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png'; // صورة افتراضية عندك في المشروع
+  event.target.src = 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png'; 
 }
 
 }

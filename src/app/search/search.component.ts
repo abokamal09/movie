@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // ← مهم
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-search',
-  standalone: true, // ← خليها standalone
-  imports: [FormsModule], // ← هنا تضيف FormsModule
+  standalone: true, 
+  imports: [FormsModule], 
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
