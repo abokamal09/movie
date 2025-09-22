@@ -1,0 +1,14 @@
+<div class="container text-center py-5" *ngIf="isWatchlistEmpty">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="watchlist-title">Watch list</h1>
+    </div>
+  </div>
+  <div class="row py-5">
+    <div class="col-12 empty-state-content">
+      <i class="fas fa-heart-crack empty-icon"></i>
+      <h2 class="mt-4 empty-message">No Movies in watch list</h2>
+      <button class="btn custom-btn mt-3" (click)="goToHomePage()">Back to home</button>
+    </div>
+  </div>
+</div>
