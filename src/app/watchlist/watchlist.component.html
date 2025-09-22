@@ -1,14 +1,56 @@
-<div class="container text-center py-5" *ngIf="isWatchlistEmpty">
-  <div class="row">
+<div class="container py-5">
+  <div class="row mb-4">
     <div class="col-12">
       <h1 class="watchlist-title">Watch list</h1>
     </div>
   </div>
-  <div class="row py-5">
-    <div class="col-12 empty-state-content">
+
+  <div class="row py-5" *ngIf="isWatchlistEmpty">
+    <div class="col-12 empty-state-content text-center">
       <i class="fas fa-heart-crack empty-icon"></i>
       <h2 class="mt-4 empty-message">No Movies in watch list</h2>
       <button class="btn custom-btn mt-3" (click)="goToHomePage()">Back to home</button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!isWatchlistEmpty">
+    <div class="col-12 mb-4" *ngFor="let movie of watchlistMovies; let i = index">
+      <div class="movie-list-item d-flex rounded-3 shadow-sm p-3">
+        <div class="movie-poster me-4 flex-shrink-0">
+          <img
+            [src]="getPosterUrl(movie.poster_path)"
+            class="rounded-3"
+            [alt]="movie.title || movie.name"
+            (error)="onImageError($event)"
+          />
+        </div>
+        <div class="movie-details flex-grow-1">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div>
+              <h5 class="movie-title fw-bold mb-1">{{ movie.title || movie.name }}</h5>
+              <p class="movie-release text-muted small mb-0">
+                {{ movie.release_date || movie.first_air_date | date : "MMM dd, yyyy" }}
+              </p>
+              <div class="movie-rating d-flex align-items-center mt-1">
+                <i *ngFor="let star of [1,2,3,4,5]"
+                   class="fas fa-star me-1"
+                   [ngClass]="{'text-warning': movie.vote_average / 2 >= star, 'text-secondary': movie.vote_average / 2 < star}"></i>
+                <span class="ms-2 text-muted">{{ movie.vote_count }}</span>
+              </div>
+            </div>
+            <button
+              class="btn p-0 border-0 bg-transparent remove-from-watchlist-btn"
+              (click)="removeFromWatchlist(movie.id, $event)"
+              type="button"
+            >
+              <i class="fas fa-heart text-warning"></i>
+            </button>
+          </div>
+          <p class="movie-overview text-muted mb-0">
+            {{ movie.overview | slice : 0 : 200 }}...
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
