@@ -1,1 +1,77 @@
-<p>details works!</p>
+<div class="container py-4">
+  <!-- Loading -->
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border text-warning" role="status"></div>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="!loading && error" class="alert alert-danger">{{ error }}</div>
+
+  <!-- Details -->
+  <div *ngIf="!loading && movie" class="row g-4">
+    <div class="col-12 col-md-4">
+      <img
+        [src]="posterUrl"
+        class="img-fluid rounded-4 w-100"
+        [alt]="movie?.title"
+      />
+    </div>
+
+    <div class="col-12 col-md-8">
+      <h2 class="fw-bold mb-1">{{ movie?.title }}</h2>
+      <p class="text-muted small mb-3">
+        {{ movie?.release_date | date : "MMM dd, yyyy" }}
+      </p>
+
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <ng-container *ngFor="let i of starPositions; let idx = index">
+          <i
+            class="fa-star text-warning"
+            [ngClass]="{
+              fas: idx < filledStars,
+              'fa-solid': idx < filledStars,
+              'fa-regular':
+                idx >= filledStars && !(hasHalfStar && idx === filledStars),
+              far: idx >= filledStars && !(hasHalfStar && idx === filledStars)
+            }"
+          ></i>
+          <i
+            *ngIf="hasHalfStar && idx === filledStars"
+            class="fa-solid fa-star-half-stroke text-warning"
+          ></i>
+        </ng-container>
+        <span class="ms-2 small text-muted"
+          >{{ movie?.vote_average | number : "1.1-1" }}/10</span
+        >
+      </div>
+
+      <p class="mb-3">{{ movie?.overview }}</p>
+
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <span
+          class="badge bg-warning text-dark"
+          *ngFor="let g of movie?.genres"
+          >{{ g.name }}</span
+        >
+      </div>
+
+      <div class="small text-muted d-flex flex-wrap gap-4">
+        <div><span class="fw-semibold">Duration:</span> {{ runtime }}</div>
+        <div>
+          <span class="fw-semibold">Languages:</span>
+          {{ movie?.original_language | uppercase }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recommendations -->
+  <div *ngIf="recommendations?.length" class="mt-5">
+    <h3 class="fw-bold mb-3">Recommendations</h3>
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let m of recommendations">
+        <app-movie-card [movie]="m"></app-movie-card>
+      </div>
+    </div>
+  </div>
+</div>
