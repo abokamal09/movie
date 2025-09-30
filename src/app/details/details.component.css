@@ -1,0 +1,19 @@
+img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.rating-circle svg {
+  background-color: #081c22;
+  border-radius: 50%;
+}
+
+.badge {
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.fa-star,
+.fa-star-half-stroke {
+  font-size: 1.25rem;
+}
