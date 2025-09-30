@@ -1,0 +1,106 @@
+.watchlist-title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.empty-state-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-icon {
+  font-size: 20rem; /* Adjusted to be very large */
+  color: #ccc;
+  transform: rotate(-10deg);
+}
+
+.empty-message {
+  font-weight: 500;
+  color: #555;
+}
+
+.custom-btn {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: black;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #e6c200;
+  border-color: #e6c200;
+}
+
+/* New styles for movie list item */
+.movie-list-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+.movie-list-item:hover {
+  transform: translateY(-3px);
+}
+
+.movie-poster img {
+  width: 130px; /* Fixed width for the poster */
+  height: 195px; /* Fixed height for the poster (approx 1.5 ratio) */
+  object-fit: cover;
+}
+
+.movie-details {
+  padding-left: 15px; /* Spacing between poster and details */
+}
+
+.movie-title {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.movie-release {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.movie-rating .fa-star {
+  font-size: 0.9rem;
+}
+
+.movie-rating .text-warning {
+  color: #ffd700 !important; /* Yellow for filled stars */
+}
+
+.movie-rating .text-secondary {
+  color: #ccc !important; /* Grey for empty stars */
+}
+
+.movie-overview {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #666;
+  margin-top: 10px;
+}
+
+.remove-from-watchlist-btn .fa-heart {
+  font-size: 1.5rem;
+  color: #ffd700; /* Yellow heart icon for favorited */
+}
+
+.remove-from-watchlist-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    align-self: flex-start; /* Align the button to the top-right */
+}

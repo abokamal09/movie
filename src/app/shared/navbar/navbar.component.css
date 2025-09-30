@@ -1,0 +1,39 @@
+.custom-navbar {
+  background-color: #ffd700; /* Yellow background color */
+  height: 80px; /* Adjust height as needed */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.brand-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+.lang-selector {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Add this new rule */
+.watchlist-link-wrapper {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.watchlist-link {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.fa-heart {
+    color: black;
+    font-size: 24px;
+}

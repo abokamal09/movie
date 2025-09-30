@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieService } from '../services/movie.service';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { SearchComponent } from "../search/search.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MovieCardComponent],
+  imports: [CommonModule, MovieCardComponent, SearchComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {

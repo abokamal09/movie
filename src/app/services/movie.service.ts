@@ -32,4 +32,14 @@ export class MovieService {
       headers: this.headers,
     });
   }
+
+  // Recommendations for a movie
+  getRecommendations(id: string, page: number = 1): Observable<any> {
+    return this.http.get(
+      `${this.base}/movie/${id}/recommendations?page=${page}`,
+      {
+        headers: this.headers,
+      }
+    );
+  }
 }

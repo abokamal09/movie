@@ -47,7 +47,3 @@ Then open your browser at:
   ```bash
   ng build
   ```
-- Run unit tests:
-  ```bash
-  ng test
-  ```

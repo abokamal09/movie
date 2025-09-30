@@ -3,27 +3,24 @@
   class="card movie-card text-decoration-none text-reset"
 >
   <div class="position-relative">
-    <!-- Movie Poster -->
     <img
-      [src]="posterUrl"
+      [src]="posterUrl || ''"
       class="card-img-top rounded-4"
       [alt]="movie?.title"
+      (error)="onImageError($event)"
     />
 
-    <!-- Rating Circle -->
     <div class="rating-circle position-absolute start-0 translate-middle-x">
       <svg viewBox="0 0 36 36" width="36" height="36">
-        <!-- Track -->
         <path
           stroke="#444"
           stroke-width="3"
           fill="none"
           d="M18 2.0845
-             a 15.9155 15.9155 0 0 1 0 31.831
-             a 15.9155 15.9155 0 0 1 0 -31.831"
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
         ></path>
 
-        <!-- Progress Border -->
         <path
           [attr.stroke]="
             voteAverage >= 75
@@ -37,11 +34,10 @@
           fill="none"
           [attr.stroke-dasharray]="voteAverage + ', 100'"
           d="M18 2.0845
-             a 15.9155 15.9155 0 0 1 0 31.831
-             a 15.9155 15.9155 0 0 1 0 -31.831"
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
         ></path>
 
-        <!-- Rating Text -->
         <text
           x="18"
           y="21"
@@ -56,26 +52,20 @@
     </div>
   </div>
 
-  <!-- Movie Info -->
   <div class="card-body p-2 pt-4">
     <div class="d-flex justify-content-between align-items-center mb-1">
       <h6 class="card-title fw-bold mb-0">
         {{ movie?.title || movie?.name }}
       </h6>
 
-      <!-- Favorite Button -->
       <button
-        class="btn p-0 border-0 bg-transparent"
+        class="btn p-0 border-0 bg-transparent favorite-button"
         (click)="toggleFavorite($event)"
         type="button"
       >
         <i
-          class="bi"
-          [ngClass]="
-            isFavorite
-              ? 'bi-heart-fill text-warning'
-              : 'bi-heart text-secondary'
-          "
+          class="fas fa-heart"
+          [ngClass]="isFavorite ? 'text-warning' : 'text-secondary'"
         ></i>
       </button>
     </div>
